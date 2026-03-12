@@ -247,6 +247,113 @@
     </div>
 </section>
 
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hotel Swami Pride Booking</title>
+
+<style>
+
+body{
+font-family: Arial;
+text-align:center;
+margin-top:50px;
+}
+
+button{
+background:#25D366;
+color:white;
+padding:15px 25px;
+border:none;
+border-radius:5px;
+font-size:18px;
+cursor:pointer;
+}
+
+#bookingForm{
+display:none;
+margin-top:20px;
+}
+
+input,select{
+padding:10px;
+width:200px;
+margin:5px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>Hotel Swami Pride</h2>
+<p>Book your room easily</p>
+
+<button onclick="openForm()">Book Room</button>
+
+<div id="bookingForm">
+
+<h3>Room Booking Form</h3>
+
+<input type="text" id="name" placeholder="Your Name"><br>
+
+<input type="text" id="phone" placeholder="Phone Number"><br>
+
+<label>Check-in</label><br>
+<input type="date" id="checkin"><br>
+
+<label>Check-out</label><br>
+<input type="date" id="checkout"><br>
+
+<input type="number" id="guests" placeholder="Number of Guests"><br>
+
+<select id="room">
+<option>Standard Room</option>
+<option>Family Room</option>
+</select>
+
+<br><br>
+
+<button onclick="sendBooking()">Send Booking on WhatsApp</button>
+
+</div>
+
+<script>
+
+function openForm(){
+document.getElementById("bookingForm").style.display="block";
+}
+
+function sendBooking(){
+
+let name=document.getElementById("name").value;
+let phone=document.getElementById("phone").value;
+let checkin=document.getElementById("checkin").value;
+let checkout=document.getElementById("checkout").value;
+let guests=document.getElementById("guests").value;
+let room=document.getElementById("room").value;
+
+let message = `Room Booking - Hotel Swami Pride
+
+Name: ${name}
+Phone: ${phone}
+Check-in: ${checkin}
+Check-out: ${checkout}
+Guests: ${guests}
+Room Type: ${room}`;
+
+let url="https://wa.me/918180014707?text="+encodeURIComponent(message);
+
+window.open(url,'_blank');
+
+}
+
+</script>
+
+</body>
+</html>
+
 <section id="restaurant">
     <h2>Pure Veg Restaurant</h2>
     <p style="text-align: center;">Freshly prepared Maharashtrian and Indian delicacies available 24/7.</p>
